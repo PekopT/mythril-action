@@ -1,0 +1,13 @@
+name: 'mythril-action'
+description: 'Runs Mythril, the Solidity analyzer by Consensys.'
+inputs:
+  target:
+    description: 'The path of the project that Mythril should analyze, relative to the repo root.'
+    default: example.sol
+    type: string
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.target }}
